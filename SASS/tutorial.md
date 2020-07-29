@@ -1,7 +1,7 @@
-=== O QUE É ? ===
+<h1>=== O QUE É ? ===</h1>
 
-SASS faz com que o css "se torne" uma linguagem de programação para que fique mais fácil a sua criação, como por exemplo, a adição de variáveis, loops entre outras coisas.
-O arquivo sass não é adicionado ao projeto, ele é processado e só assim adicionado ao projeto como um arquivos css comum.
+<h3>SASS faz com que o css "se torne" uma linguagem de programação para que fique mais fácil a sua criação, como por exemplo, a adição de variáveis, loops entre outras coisas.<br>
+O arquivo sass não é adicionado ao projeto, ele é processado e só assim adicionado ao projeto como um arquivos css comum.</h3>
 
 <h1>=== IMPORT ====</h1>
 
