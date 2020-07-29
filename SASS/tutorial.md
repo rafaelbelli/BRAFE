@@ -1,83 +1,91 @@
-#IMPORT =============================================
+=== O QUE √â ? ===
 
-Para importar um css dentro de outro css podemos utilizar o cÛdigo:
+SASS faz com que o css "se torne" uma linguagem de programa√ß√£o para que fique mais f√°cil a sua cria√ß√£o, como por exemplo, a adi√ß√£o de vari√°veis, loops entre outras coisas.
+O arquivo sass n√£o √© adicionado ao projeto, ele √© processado e s√≥ assim adicionado ao projeto como um arquivos css comum.
 
-@import "arquivo.css";
+<h1>=== IMPORT ====</h1>
 
-Ex:
+<h3>Para importar um css dentro de outro css podemos utilizar o c√≥digo:</h3>
 
-@import "arquivo.css";
+	@import "arquivo.css";
 
-body {
-	margin: 0;
-	padding: 0;
-}
+<h3>Ex:</h3>
 
+	@import "arquivo.css";
 
-para importar um arquivo .scss dentro de outro scss escrevemos
-
-@import "arquivo" /*para um arquivo .scss*/
-
-ele ir· criar um outro arquivo css para que os itens sejam importados e haja um conex„o entre os itens
-
-se vocÍ colocar _ antes do nome do arquivo .scss, ele n„o ir· criar outro arquivo scss, mas ir· importar o cÛdigo para
-dentro do css alvo.
-
-ex: @import "_arquivo";
-
-#vari·veis ======================================
-
-As vari·veis funcionam quase igual no PHP, a diferenÁa È que invÈs de "=" vocÍ utiliza ":"
-
-para criar vocÍ escreve no arquivo .scss:
-
-$vari·vel: valor;
-
-ex:-
-
-$color = #fff;
-
-div>a {
-	color = $color;
-}
-
-no arquivo .css ir· aparecer
-
-div > a {
-	color = #fff;
-}
+	body {
+		margin: 0;
+		padding: 0;
+	}</p>
 
 
-#NESTING ==========================================
+<h3>para importar um arquivo .scss dentro de outro scss escrevemos</h3>
 
-VocÍ pode identar o cÛdigo da seguinte forma no .scss:
+	@import "arquivo" /*para um arquivo .scss, n√£o √© necess√°rio colocar a extens√£o*/
 
-$color-bg: yellow;
-$color-font-a: blue;
-$color-font-hover: black;
+<h3>ele ir√° criar um outro arquivo css de mesmo nome para que os itens sejam importados e haja uma conex√£o entre os arquivos
 
-div {
-	background: $color-bg;
-	a {
+se voc√™ colocar _ antes do nome do arquivo .scss, ele n√£o ir√° criar outro arquivo scss, mas ir√° importar o c√≥digo para
+dentro do css alvo.</h3>
+
+<h3>ex:</h3> 
+nome do arquivo:  _arquivo.scss"
+
+modo de importar: 
+
+	@import "arquivo";
+
+<h1>=== vari√°veis ===</h1>
+
+<h3>As vari√°veis funcionam quase igual no PHP, a diferen√ßa √© que inv√©s de "=" voc√™ utiliza ":" para criar uma voc√™ escreve no arquivo .scss:</h3>
+
+	$vari√°vel: valor;
+
+<h3>ex:-</h3>
+
+	$color = #fff;
+
+	div>a {
+		color = $color;
+	}
+
+<h3>no arquivo .css ir√° aparecer:</h3>
+
+	div > a {
+		color = #fff;
+	}
+
+
+<h1>=== NESTING ===</h1>
+
+<h3>Voc√™ pode identar o c√≥digo da seguinte forma no .scss:</h3>
+
+	$color-bg: yellow;
+	$color-font-a: blue;
+	$color-font-hover: black;
+
+	div {
+		background: $color-bg;
+		a {
+			text-decoration: none;
+			color: color-font-a;
+			&:hover{
+				color: $color-font-hover;
+			}
+		}	
+	}
+
+<h3>no arquivo .css ir√° aparecer:</h3>
+
+	div {
+		background: yellow;
+	}
+
+	div a {
 		text-decoration: none;
-		color: color-font-a;
-		&:hover{
-			color: $color-font-hover;
-		}
+		color: blue;
+	}
+
+	div a:hover {
+		color: black;
 	}	
-}
-
-no arquivo .css ir· aparecer:
-
-div {
-	background: yellow;
-}
-
-div a {
-	text-decoration: none;
-	color: blue;
-}
-
-div a:hover {
-	color: black;
-}	
