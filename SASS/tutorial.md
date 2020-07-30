@@ -19,16 +19,16 @@ O arquivo sass não é adicionado ao projeto, ele é processado e só assim adic
 	}</p>
 
 
-<h3>para importar um arquivo .scss dentro de outro scss escrevemos</h3>
+<h3>Para importar um arquivo .scss dentro de outro scss escrevemos</h3>
 
 	@import "arquivo" /*para um arquivo .scss, não é necessário colocar a extensão*/
 
-<h3>ele irá criar um outro arquivo css de mesmo nome para que os itens sejam importados e haja uma conexão entre os arquivos
+<h3>Ele irá criar um outro arquivo css de mesmo nome para que os itens sejam importados e haja uma conexão entre os arquivos.
 
-se você colocar _ antes do nome do arquivo .scss, ele não irá criar outro arquivo scss, mas irá importar o código para
+Se você colocar _ antes do nome do arquivo .scss, ele não irá criar outro arquivo scss, mas irá importar o código para
 dentro do css alvo.</h3>
 
-<h3>ex:</h3> 
+<h3>Ex:</h3> 
 nome do arquivo:  _arquivo.scss"
 
 modo de importar: 
@@ -41,7 +41,7 @@ modo de importar:
 
 	$variável: valor;
 
-<h3>ex:-</h3>
+<h3>Ex:</h3>
 
 	$color = #fff;
 
@@ -49,7 +49,7 @@ modo de importar:
 		color = $color;
 	}
 
-<h3>no arquivo .css irá aparecer:</h3>
+<h3>No arquivo .css irá aparecer:</h3>
 
 	div > a {
 		color = #fff;
@@ -75,7 +75,7 @@ modo de importar:
 		}	
 	}
 
-<h3>no arquivo .css irá aparecer:</h3>
+<h3>No arquivo .css irá aparecer:</h3>
 
 	div {
 		background: yellow;
@@ -89,3 +89,126 @@ modo de importar:
 	div a:hover {
 		color: black;
 	}	
+
+<h3>Também é possível usar o nesting em propriedade
+
+Ex:</h3>
+
+	div{
+		font{
+			size: 1.5em;
+			family: Georgia;
+		}
+	}
+	
+<h3>No .CSS irá aparecer da seguinte forma:</h3>
+
+	div font{
+		size: 1.5em;
+		family: Georgia;
+	}
+	
+<h1>=== Mixins ===</h1>
+
+<h3>Se fossemos criar um código que iriamos repetir muitas vezes se digitado sempre, o correto seria criar um mixin para poupar de digitar muitas linhas sem necessidade.
+	
+Ex:</h3>
+
+	@mixin title{
+		font-size: 4em;
+		font-family: monospace;
+		font-weight: bold;
+		color: red;
+	}
+	
+	.classe1 h1{
+	@include title;
+	}
+	
+	.classe2 h1{
+	@include title;
+	}
+
+<h3> No código .CSS gerado aparecerá assim </h3>
+
+	.classe1 h1{
+		font-size: 4em;
+		font-family: monospace;
+		font-weight: bold;
+		color: red;
+	}
+	
+	.classe2 h1{
+		font-size: 4em;
+		font-family: monospace;
+		font-weight: bold;
+		color: red;
+	}
+	
+<h2> É possível utilizar argumentos no mixin.</h2>
+
+<h3>Ex:</h3>
+
+	@mixin title($size, $color){
+		font-size: $size;
+		font-family: monospace;
+		font-weight: bold;
+		color: $color;
+	}
+	
+	.classe h1{
+		@include title(4em, red)
+	}
+	
+<h3> Irá aparecer dessa maneira no .CSS:</h3>
+
+	.classe h1{
+		font-size: 4em;
+		font-family: monospace;
+		font-weight: bold;
+		color: red;
+	}	
+
+<h2>Usando @content</h2>
+
+<h3>Podemos usar o content para enviar informações o mixin
+Ex:</h3>
+
+	@mixin mobile{
+		@media (max-width: 600px) {
+		 @content;
+		}
+	}
+	
+	@mixin tablet{
+		@media (max-width: 980px) {
+		 @content;
+		}
+	}
+	
+	.classe h1{
+		@include mobile{
+			color: blue;
+			font-size: 1em;
+		}
+		@include tablet{
+			color: red;
+			font-size: 2em;
+		}
+	}
+	
+<h3>No .CSS</h3>
+
+	@media (max-width: 600px;) {
+		 .classe h1{
+		 	color: blue;
+			font-size: 1em;
+		 }
+	}
+	
+	@media (max-width: 980px;) {
+		 .classe h1{
+		 	color: red;
+			font-size: 2em;
+		 }
+	}
