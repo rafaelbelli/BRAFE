@@ -282,4 +282,4 @@ Ex:</h3>
 	}
 
 <h3> Usamos o @for para iniciar o LOOP, colocamos uma variável para armazenar o contador, e dizer FROM (DE) 1 THROUGH (para) 6 (até a quantidade desejada), colocamos o contador
-	na criação da classe para sempre criar uma classe nova a cada passagem e não substituir, e depois usamos o contador para multiplicar o width conforme a classe for aumentando. </h3>
+	na criação da classe para sempre criar uma classe nova a cada passagem e não substituir, e depois usamos o contador para multiplicar o width conforme a classe for aumentando. As vezes não é detectado a variável sem estar entre #{}, então temos que colocar.</h3>
