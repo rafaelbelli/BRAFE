@@ -268,4 +268,18 @@ Ex:</h3>
 	.classe{
 		shadow-box: 5px 5px 5px 0 #000
 	}
+	
+<h1>=== LOOP ===</h1>
 
+<h3>Igual a um loop de outras linguagens, com mudanças na sintaxe
+
+Ex:</h3>
+
+	@for $i from 1 through 6{
+		.size-$i{
+			width: 100px * $i;
+		}
+	}
+
+<h3> Usamos o @for para iniciar o LOOP, colocamos uma variável para armazenar o contador, e dizer FROM (DE) 1 THROUGH (para) 6 (até a quantidade desejada), colocamos o contador
+	na criação da classe para sempre criar uma classe nova a cada passagem e não substituir, e depois usamos o contador para multiplicar o width conforme a classe for aumentando. </h3>
