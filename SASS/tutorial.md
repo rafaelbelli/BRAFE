@@ -171,7 +171,7 @@ Ex:</h3>
 
 <h2>Usando @content</h2>
 
-<h3>Podemos usar o content para enviar informações o mixin
+<h3>Podemos usar o content para enviar informações ao mixin.
 Ex:</h3>
 
 	@mixin mobile{
@@ -212,3 +212,35 @@ Ex:</h3>
 			font-size: 2em;
 		 }
 	}
+<h1>=== Extend ===</h1>
+
+	.title{
+		background: blue;
+		@extend title-color;
+	}
+
+	.title-color{
+		color: red;
+	}
+<h3> No .CSS.</h3>
+
+	.title-color, title{
+		color: red;
+	}
+	
+<h1>=== Operadores ===</h1>
+
+<h3> Com o Sass é possível fazer contas com as propriedades
+Ex:</h3>
+
+	.classe h1{
+		font-size: 10px + 20;
+	}
+	
+<h3>No . CSS</h3>
+
+	.classe h1{
+		font-size: 30px;
+	}
+	
+<h3>Não precisa digitar o tipo do tamanho do item que está somando, mas também não é possível somar dois tipos de tamanhos diferentes como em e px.</h3>
