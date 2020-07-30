@@ -244,3 +244,28 @@ Ex:</h3>
 	}
 	
 <h3>Não precisa digitar o tipo do tamanho do item que está somando, mas também não é possível somar dois tipos de tamanhos diferentes como em e px.</h3>
+
+<h1>=== Estrutura condicional ===</h3>
+
+	@mixin box-shadow($shadow){
+		@if $boxshadow == 1 {
+			shadow-box: 5px 5px 5px 0 #000
+		}
+		@if $boxshadow == 2 {
+			shadow-box: 10px 10px 10px 0 #333
+		}
+		@if $boxshadow == 3 {
+			shadow-box: 15px 15px 15px 0 #333
+		}
+	}
+
+	.classe {
+	@include box-shadow(1)
+	}
+	
+<h3>No . CSS</h3>
+
+	.classe{
+		shadow-box: 5px 5px 5px 0 #000
+	}
+
