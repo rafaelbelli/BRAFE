@@ -276,7 +276,7 @@ Ex:</h3>
 Ex:</h3>
 
 	@for $i from 1 through 6{
-		.size-$i{
+		.size-{$i}{
 			width: 100px * $i;
 		}
 	}
