@@ -271,10 +271,10 @@ Ex:</h3>
 	
 <h1>=== LOOP ===</h1>
 
-<h3>Igual a um loop de outras linguagens, com mudanças na sintaxe
+<h3>Igual a um loop de outras linguagens, com mudanças na sintaxe</h3>
 
 <h2>FOR/h2>
-Ex:</h3>
+<h3>Ex:</h3>
 
 	@for $i from 1 through 6{
 		.size-{$i}{
