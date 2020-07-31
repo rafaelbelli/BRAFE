@@ -273,6 +273,7 @@ Ex:</h3>
 
 <h3>Igual a um loop de outras linguagens, com mudanças na sintaxe
 
+<h2>FOR/h2>
 Ex:</h3>
 
 	@for $i from 1 through 6{
@@ -283,3 +284,71 @@ Ex:</h3>
 
 <h3> Usamos o @for para iniciar o LOOP, colocamos uma variável para armazenar o contador, e dizer FROM (DE) 1 THROUGH (para) 6 (até a quantidade desejada), colocamos o contador
 	na criação da classe para sempre criar uma classe nova a cada passagem e não substituir, e depois usamos o contador para multiplicar o width conforme a classe for aumentando. As vezes não é detectado a variável sem estar entre #{}, então temos que colocar.</h3>
+
+
+<h2> WHILE </h2>
+	
+	$i: 1;
+	
+	@while $i <= 6 {
+		.class-#{$i}{
+			width: 200px * $i;
+		}
+		$i = $i + 1;
+	}
+
+<h3>Com o while iniciamos um contador antes para definir o seu valor inicial, e dizemos para ele continuar enquanto o contador for menor ou igual 6, adicionamos o próprio contado ao final da classe para que a cada passagem uma nova classe seja criadda, e no final incrementamos o valor do contador, porque se não fizermos irá ficar em um loop infinito.
+	
+No .CSS ficaria assim:</h3>
+
+	.class-1{
+	width:200px
+	}
+	
+	.class-2{
+	width:400px
+	}
+	
+	.class-3{
+	width:600px
+	}
+	
+	.class-4{
+	width:800px
+	}
+	
+	.class-5{
+	width:1000px
+	}
+	
+	.class-6{
+	width:1200px
+	}
+	
+<h2>EACH</h2>
+	
+	$lista: facebook instagram pinterest whatsapp;
+	
+	@each $item in $lista {
+	.#{$item}-social{
+		background: url('../images/#{$item}.png');
+		}
+	}
+	
+<h3> Definimos uma lista com os itens que queremos dentro, para separar é só dar um espaço, começamos com each e definimos uma variável qualquer para que seja identificado cada item na lista, no exemplo identifiquei como $item mesmo, então ele vai pesquisar cada $item dentro da lista, e adicionamos as variáveis nas propriedades que queremos
+	
+No .CSS ficará assim:</h3>
+
+	.facebook-social{
+	background:url("../images/facebook.png")
+	}
+	.instagram-social{
+	background:url("../images/instagram.png")
+	}
+	.pinterest-social{
+	background:url("../images/pinterest.png")
+	}
+	.whatsapp-social{
+	background:url("../images/whatsapp.png")
+	}
+
