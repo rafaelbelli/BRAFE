@@ -1,0 +1,125 @@
+//Variaveis do GRID
+$cols: 12;
+$gutter: 20px;
+$l-device: 1200px;
+$m-device: 760px;
+$s-device: 480px;
+
+//Box-sizing
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+//Mixin de media-querie
+
+@mixin device($size){
+    @if $size == large{
+        @media screen and (max-width: #{$l-device}){
+            @content;
+        }
+    }
+     @else if $size == medium{
+         @media screen and (min-width: #{$m-device}) and (max-width: #{$l-device - 1px}){
+            @content;
+        }
+    }
+     @else if $size == small{
+         @media screen and (max-width: #{$m-device - 1px}){
+            @content;
+        }
+    }
+    
+}
+
+//Função criar GRID
+
+@function grid($col, $offset: false){
+    $width: $col / $cols * 100 + "%";
+    $result: calc(#{$width} - #{$gutter});
+    @if $offset == offset {
+        $gutter: $gutter / 2;
+        $result: calc(#{$width} - #{$gutter});
+    }
+    @return $result;
+}
+
+
+div {
+    width: grid(4, offset);
+}
+
+//Gerar GRID
+
+
+@for $i from  1 through $cols{
+    .grid-#{$i}{
+        width: grid($i);
+    }
+}
+
+@mixin grid-structure{
+    float: left;
+    min-height: 1px;
+    margin-left: $gutter / 2;
+    margin-left: $gutter / 2;
+    @include device(small) {
+        width: 100%;
+        float: none;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+[class^="grid-"] {
+    @include grid-structure;
+}
+
+//gerar GRID offset
+
+@for $i from  1 through $cols{
+    .offset-#{$i}{
+        margin-left: grid($i, offset);
+        @extend %offset;
+    }
+}
+
+@include device(small) {
+    %offset {
+        margin-left: 0px;
+    }
+}
+
+//Mixin de clearfix {
+
+@mixin clearfix{
+        &::before, &::after{
+            content: '';
+            display: table;
+            clear: both;
+    } 
+}
+
+@mixin container {
+    max-width: $l-device;
+    margin: 0 auto;
+    position: relative;
+    @include device(medium) {
+        max-width: $m-device;
+    }
+    @include device(small){
+        max-width: $s-device;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    @include clearfix;
+}
+
+.container{
+    @include container;
+}
+
+div{
+    background: rgba(0,0,0,.5);
+    min-height: 50px !important;
+}

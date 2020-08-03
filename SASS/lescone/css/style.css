@@ -1,9 +1,5 @@
-*, *::after, **before {
+*, *::after, *::before {
   box-sizing: border-box;
-}
-
-div {
-  width: calc(33.33333% - 10px);
 }
 
 .grid-1 {
@@ -58,15 +54,15 @@ div {
   float: left;
   min-height: 1px;
   margin-left: 10px;
-  margin-left: 10px;
+  margin-right: 10px;
 }
 
 @media screen and (max-width: 759px) {
   [class^="grid-"] {
     width: 100%;
     float: none;
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 0px;
+    margin-right: 0px;
   }
 }
 
@@ -139,12 +135,12 @@ div {
 @media screen and (max-width: 759px) {
   .container {
     max-width: 480px;
-    margin-left: 10px;
-    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
-.container::before, .container::after {
+.container::after, .container::before {
   content: '';
   display: table;
   clear: both;
